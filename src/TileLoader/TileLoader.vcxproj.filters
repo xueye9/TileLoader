@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ThreadPool.cpp">
+      <Filter>threadpool</Filter>
+    </ClCompile>
+    <ClCompile Include="Work.cpp">
+      <Filter>threadpool</Filter>
+    </ClCompile>
+    <ClCompile Include="Slave.cpp">
+      <Filter>threadpool</Filter>
+    </ClCompile>
+    <ClCompile Include="WMTS\TileMatrix.cpp">
+      <Filter>WMTS</Filter>
+    </ClCompile>
+    <ClCompile Include="WMTS\TileMatrixSet.cpp">
+      <Filter>WMTS</Filter>
+    </ClCompile>
+    <ClCompile Include="WMTS\Capabilities.cpp">
+      <Filter>WMTS</Filter>
+    </ClCompile>
+    <ClCompile Include="WMTS\GWMTSCapabilitiesParser.cpp">
+      <Filter>WMTS</Filter>
+    </ClCompile>
+    <ClCompile Include="BundleTask.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplodeTask.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="bundledistributor.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="config.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="distributor.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Loader.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Progress.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="projection.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="projectionfactory.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Writer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="utiliyapi.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ThreadPool.h">
+      <Filter>threadpool</Filter>
+    </ClInclude>
+    <ClInclude Include="Work.h">
+      <Filter>threadpool</Filter>
+    </ClInclude>
+    <ClInclude Include="Slave.h">
+      <Filter>threadpool</Filter>
+    </ClInclude>
+    <ClInclude Include="WMTS\TileMatrix.h">
+      <Filter>WMTS</Filter>
+    </ClInclude>
+    <ClInclude Include="WMTS\TileMatrixSet.h">
+      <Filter>WMTS</Filter>
+    </ClInclude>
+    <ClInclude Include="WMTS\Capabilities.h">
+      <Filter>WMTS</Filter>
+    </ClInclude>
+    <ClInclude Include="WMTS\GWMTSCapabilitiesParser.h">
+      <Filter>WMTS</Filter>
+    </ClInclude>
+    <ClInclude Include="BundleTask.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplodeTask.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="BundleParamDef.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="distributor.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Loader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="ParamDef.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Progress.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="projection.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="projectionfactory.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Writer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="threadfunc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="utiliyapi.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="threadpool">
+      <UniqueIdentifier>{6715ce91-6de3-48b9-9ffa-e382118a3c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WMTS">
+      <UniqueIdentifier>{d37af8e2-c56a-4806-bca8-25e83746be45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Task">
+      <UniqueIdentifier>{356c8615-ffcd-4495-b46b-e69c14f102ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{13e0ffa8-9f4f-426e-9636-e149cb851289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{a9b8faaa-dc3f-4828-b668-70a77288bf09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{03cf8062-0649-42e1-8567-ae35eba5ffc6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="config.xml">
+      <Filter>resources</Filter>
+    </Xml>
+    <Xml Include="tianditu_c.xml">
+      <Filter>resources</Filter>
+    </Xml>
+    <Xml Include="tianditu_w.xml">
+      <Filter>resources</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="spatial_ref_sys.json">
+      <Filter>resources</Filter>
+    </None>
+  </ItemGroup>
+</Project>
