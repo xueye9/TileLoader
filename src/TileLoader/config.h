@@ -87,6 +87,9 @@ public:
 	{
 		return m_nUpperLimit;
 	}
+private:
+	// 初始化输出目录
+	void _iniOutDir();
 
 private:
 	static Config* _ins;

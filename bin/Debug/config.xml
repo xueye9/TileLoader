@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config name="">
+	<!-- 线程数 -->
+	<slavenum>8</slavenum>
+	<!-- 线程池容纳的任务上限和下限 -->
+	<upperlimit>50</upperlimit>
+	<lowerlimit>20</lowerlimit>
+	
+	<!-- 下载数据范围WGS84经纬度坐标-->
+	<left>113.474691</left>
+	<bottom>37.7846</bottom>
+	<right>113.703507</right>
+	<top>37.942500</top>
+	
+	<origin name="谷歌街区瓦片地图">
+	
+	  <!-- 元数据定义文件 -->
+    <wmts:Capabilities>./tianditu_w.xml</wmts:Capabilities>
+    <!-- 元数据定义文件中的切片方案名 -->
+    <wmts:TileMatrixSet>w</wmts:TileMatrixSet>
+	
+    <!-- 数据编码，获取数据时会按指定编码进行解码 -->
+    <Content-Encoding></Content-Encoding>
+    
+    <!--0:http 1:https 如果是https 内部跳过https的验证过程，-->
+    <protocol>http</protocol>
+    
+    <dpi>96.0</dpi>
+		<!-- {level} :替换为等级 -->
+		<!-- {col} :替换为列号 -->
+		<!-- {row} :替换为行号 -->
+		<url>http://t0.tianditu.com/img_w/wmts?service=WMTS&request=GetTile&version=1.0.0&layer=img&style=default&format=tiles&tileMatrixSet=w&TileMatrix={level}&TileRow={row}&TileCol={col}</url>
+		<!-- 空间参考唯一编号,作者:编号,例如 EPSG:3857(EPSG定义的web Mercator)  -->
+		<srid>3857</srid>
+
+		<!-- 定义下载那些等级的数据 -->
+	
+		<level>1</level>
+		<level>2</level>
+		<level>3</level>
+		<level>4</level>
+		<level>5</level>
+		<level>6</level>
+		<level>7</level>
+		<level>8</level>
+		<level>9</level>
+		<level>10</level>
+		<level>11</level>
+		<level>12</level>
+		<level>13</level>
+		<level>14</level>
+		<level>15</level>
+		<level>16</level>
+		<level>17</level>
+	
+    	</origin>
+	<out>
+		<!-- arcgis:compact-- arcgis紧凑型切片文件(bundle), explode---存储在 等级/列号（x）/行号（y）.suffix 的本地磁盘下	-->
+		<type>arcgis:compact</type>
+		<dir>d:/Data/Layers/tianditu_w/sxyq</dir>
+    
+		<!-- 输出文件的文件后缀名 png，vector.pbf-->
+		<suffix>png</suffix>
+	</out>
+</config>

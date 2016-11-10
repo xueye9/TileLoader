@@ -60,12 +60,12 @@ void* BundleDistributor::run()
 
 		int nRow = 0;
 		int nCol = 0;
-		int nSec = 0;
 
-		for (nCol = nBeginCol; nCol < nMaxCol; nCol += 128)
+		int nSecCol = 0;
+		for (nCol = nBeginCol; nCol < nMaxCol; /*nCol += 128*/)
 		{
-			int nSec1 = 0;
-			for (nRow = nBeginRow; nRow < nMaxRow; nRow += 128)
+			int nSecRow = 0;
+			for (nRow = nBeginRow; nRow < nMaxRow; /*nRow += 128*/)
 			{
 				BundleTask* pWork = new BundleTask(Config::Instance(), ThreadPool::getProgress());
 
@@ -73,52 +73,49 @@ void* BundleDistributor::run()
 				pWork->m_nDownLoadBeginRow = nRow;
 				pWork->m_nDownLoadBeginCol = nCol;
 
-				if (pWork->m_nDownLoadBeginRow + 128 > nMaxRow)
+				if (0 == nSecRow)
+				{
+					pWork->m_nMaxRow = (((nBeginRow >> 7) << 7) + 128);
+				}
+				else
+				{
+					pWork->m_nMaxRow = nRow + 128;
+				}
+
+				if (pWork->m_nMaxRow > nMaxRow)
 				{
 					pWork->m_nMaxRow = nMaxRow;
 				}
+
+				if (0 == nSecCol)
+				{
+					pWork->m_nMaxCol = (((nBeginCol >> 7) << 7) + 128);
+				}
 				else
 				{
-					if (0 == nSec1)
-					{
-						pWork->m_nMaxRow = (((nBeginRow >> 7) << 7) + 128);
-					}
-					else
-					{
-						pWork->m_nMaxRow = nRow + 128; 
-					}
+					pWork->m_nMaxCol = nCol + 128;
 				}
 
-				if (pWork->m_nDownLoadBeginCol + 128 > nMaxCol)
+				if (pWork->m_nMaxCol > nMaxCol)
 				{
 					pWork->m_nMaxCol = nMaxCol;
-				}
-				else
-				{
-					if (0 == nSec)
-					{
-						pWork->m_nMaxCol = ((nBeginCol >> 7) << 7) + 128;
-					}
-					else
-					{
-						pWork->m_nMaxCol = nCol + 128;
-					}
-					
 				}
 
 				int nCount = m_pPool->addWork(pWork);
 
-				if (0 == nSec1)
+				if (0 == nSecRow)
 				{
-					nCol = ((nBeginRow >> 7) << 7) + 128;
+					nRow = ((nBeginRow >> 7) << 7) + 128;
 				}
 				else
 				{
-					nCol += 128;
+					nRow += 128;
 				}
+
+				++nSecRow;
 			}
 
-			if (0 == nSec)
+			if (0 == nSecCol)
 			{
 				nCol = ((nBeginCol >> 7) << 7) + 128;
 			}
@@ -126,11 +123,12 @@ void* BundleDistributor::run()
 			{
 				nCol += 128;
 			}
+
+			++nSecCol;
 		}
 	}	
 
 	return NULL;
-
 }
 
 #endif // BUNDLEDISTRIBUTOR_H__

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config name="">
+	<!-- 线程数 -->
+	<slavenum>8</slavenum>
+	<!-- 下载数据范围WGS84经纬度坐标-->
+	<left>119.82839897745097</left>
+  <bottom>30.596081796757588</bottom>
+	<right>120.51562399702985</right>
+	<top>30.980299663878426</top>
+	
+	<origin name="谷歌街区瓦片地图">
+		<!-- {level} :替换为等级 -->
+		<!-- {col} :替换为列号 -->
+		<!-- {row} :替换为行号 -->
+
+    <!-- wmts 资源类型 -->
+    <!-- googlemap切片方案 -->
+    <type>wmts</type>
+    <wmts:file>./tianditu_c.xml</wmts:file>
+    <dpi>96.0</dpi>
+
+    <!-- {level} -->
+    <!-- {col} -->
+	
+    <!-- {row} -->
+		<url>http://t0.tianditu.com/vec_c/wmts?service=WMTS&request=GetTile&version=1.0.0&layer=vec&style=default&format=tiles&tileMatrixSet=c&TileMatrix={level}&TileRow={row}&TileCol={col}</url>
+		<!-- 空间参考唯一编号,作者:编号,例如 EPSG:3857(EPSG定义的web Mercator)  -->
+		<srid>3857</EPSG:srid>
+
+		<!-- 定义下载那些等级的数据 -->
+		<level>14</level>
+		<level>15</level>
+		<level>16</level>
+		<level>17</level>
+	</origin>
+	<!-- 输出数据类型, 输出位置-->
+	<!-- arcgis_compact arcgis紧凑型切片文件	-->
+	<out type="arcgis_compact">
+		<dir>d:/Data/tianditu/vec_c</dir>
+	</out>
+</config>

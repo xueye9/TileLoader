@@ -3,6 +3,7 @@
 #include "rapidxml/rapidxml_utils.hpp"  
 #include "rapidxml/rapidxml_print.hpp" 
 #include <iostream>
+#include "utiliyapi.h"
 
 #include "glog/logging.h"
 
@@ -285,6 +286,8 @@ bool Config::_loadOut(void* p)
 		return false;
 	}
 
+	_iniOutDir();
+
 	return true;
 }
 
@@ -297,4 +300,28 @@ double Config::getDPI()
 {
 	return m_dbDPI;
 }
+
+void Config::_iniOutDir()
+{
+	Config* pIns = Config::Instance();
+	std::vector<int>::iterator it  = pIns->m_vLevels.begin();
+
+	char szTemp[4];
+	for (; it != pIns->m_vLevels.end();++it)
+	{
+		std::string sTemp;
+		int nLevel = *it;
+		memset(szTemp, 0, 4);
+		sprintf(szTemp, "L%02d", nLevel);
+		{
+			std::stringstream ss;
+			ss << pIns->m_sOutDir << "/" << szTemp;
+			sTemp = ss.str();
+		}
+
+		checkDestination(sTemp);
+	}
+}
+
+
 

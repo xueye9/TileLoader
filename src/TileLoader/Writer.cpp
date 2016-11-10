@@ -160,7 +160,6 @@ int Writer::writePngToBundle(char* szPng, int nPngSize, const TileID& tTileID, s
 		std::stringstream ss;
 		std::string s = ss.str();
 		ss << nBundleRowIdx << "," << nBundleColIdx;
-		MessageBoxA(NULL, s.c_str(), "bb", MB_OK);
 
 		LOG(INFO) << "Ô½½çrow:" << nBundleRowIdx << ",col:" << nBundleColIdx;
 
